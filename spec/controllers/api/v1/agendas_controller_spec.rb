@@ -63,7 +63,7 @@ describe Api::V1::AgendasController do
     context "when agenda is not found" do
       let!(:response) { get :show, params: { id: 1 } }
       let(:body) { JSON.parse(response.body) }
-      let(:message) { "Não foi encontrado a razão de cancelamento de orçamento com id 1" }
+      let(:message) { "Não foi encontrado a agenda com id 1" }
 
       it "returns code 404" do
         expect(response.status).to eq(404)
