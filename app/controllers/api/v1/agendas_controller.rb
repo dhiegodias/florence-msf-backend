@@ -30,6 +30,21 @@ module Api
         end
       end
 
+      def destroy
+        @agenda = Agenda.find_by_id(agenda_id)
+        raise_agenda_not_found(id: agenda_id) unless @agenda.present?
+
+        if @agenda.destroy
+          render json: { result: "A agenda foi deletada com sucesso!" }
+        else
+          render json: { error: "Não foi possível deletar a agenda." }, status: :bad_request
+        end
+      rescue AgendaNotFoundException => e
+        render json: { error: e.message }, status: :not_found
+      rescue => e
+        render json: { error: "Ocorreu um erro inesperado"}, status: :bad_request
+      end
+
       private
 
       def agenda_id
