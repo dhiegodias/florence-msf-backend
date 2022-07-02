@@ -9,8 +9,6 @@ describe Api::V1::AgendasController do
       let!(:response) { get :index }
       let!(:agendas) { JSON.parse(response.body)["result"] }
 
-      let(:keys) { ["id", "title", "keywords", "created_at", "updated_at"] }
-
       it "returns code 200" do
         expect(response.status).to eq(200)
       end
