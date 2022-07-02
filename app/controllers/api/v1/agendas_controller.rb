@@ -21,10 +21,23 @@ module Api
         render json: { error: "Ocorreu um erro inesperado"}, status: :bad_request
       end
 
+      def create
+        @agenda = Agenda.new(agenda_params)
+        if @agenda.save
+          render json: { result: @agenda }
+        else
+          render json: { error: "Não foi possível criar uma nova agenda." }, status: :bad_request
+        end
+      end
+
       private
 
       def agenda_id
         params[:id]
+      end
+
+      def agenda_params
+        params.permit(:title, :keywords)
       end
 
       def raise_agenda_not_found(id:)

@@ -87,4 +87,26 @@ describe Api::V1::AgendasController do
     end
   end
 
+  describe "#create" do
+    context "when params are correct" do
+      let(:params) { { title: "Título", keywords: [] } }
+
+      it "creates agenda" do
+        expect{
+          post :create, params: params
+        }.to change(Agenda,:count).by(1)
+      end
+    end
+
+    context "when params are incomplete" do
+      let(:params) { { title: "", keywords: [] } }
+
+      it "does not creates agenda" do
+        expect{
+          post :create, params: params
+        }.to change(Agenda,:count).by(0)
+      end
+    end
+  end
+
 end
