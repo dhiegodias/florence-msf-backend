@@ -109,6 +109,46 @@ describe Api::V1::AgendasController do
     end
   end
 
+  describe "#update" do
+    let(:id) { agenda1.id }
+    let(:params) { { id: id, title: "Novo título" } }
+
+    context "when agenda is not found" do
+      let!(:response) { put :update, params: { id: 1 } }
+      let(:body) { JSON.parse(response.body) }
+      let(:message) { "Não foi encontrado a agenda com id 1" }
+
+      it "returns code 404" do
+        expect(response.status).to eq(404)
+      end
+
+      it "returns the correct message" do
+        expect(body["error"]).to eq(message)
+      end
+    end
+
+    context "when update is successful" do
+      let!(:response) { put :update, params: params }
+      let(:body) { JSON.parse(response.body) }
+
+      it "returns updated agenda" do
+        expect(body["result"]["title"]).to eq("Novo título")
+      end
+    end
+
+    context "when an error occurs" do
+      before do
+        allow(Agenda).to receive(:find_by_id).and_raise(RuntimeError)
+      end
+
+      it "returns code 400" do
+        put :update, params: params
+
+        expect(response.status).to eq(400)
+      end
+    end
+  end
+
   describe "#destroy" do
     let(:id) { agenda1.id }
     let(:params) { { id: id } }
