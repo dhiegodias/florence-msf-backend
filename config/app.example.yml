@@ -4,6 +4,8 @@ development:
     consumer_secret: ""
     access_token: ""
     access_token_secret: ""
+  news_api:
+    api_key: ""
 
 test:
   twitter:
@@ -11,3 +13,5 @@ test:
     consumer_secret: ""
     access_token: ""
     access_token_secret: ""
+  news_api:
+    api_key: ""
