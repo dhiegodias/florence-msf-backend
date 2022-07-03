@@ -68,7 +68,7 @@ module Api
       end
 
       def stakeholder_params
-        params.permit(:id, :name, :position, :twitter, :instagram, :role, :phone, :email, :organization)
+        params.permit(:id, :name, :position, :twitter, :instagram, :role, :phone, :email, :organization, :agenda_id)
       end
 
       def raise_stakeholder_not_found(id:)
