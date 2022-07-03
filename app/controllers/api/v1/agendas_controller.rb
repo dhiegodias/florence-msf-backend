@@ -14,7 +14,7 @@ module Api
         @agenda = Agenda.find_by_id(agenda_id)
         raise_agenda_not_found(id: agenda_id) unless @agenda.present?
 
-        render json: { result: @agenda }
+        render json: { result: @agenda.to_hash }
       rescue AgendaNotFoundException => e
         render json: { error: e.message }, status: :not_found
       rescue => e
