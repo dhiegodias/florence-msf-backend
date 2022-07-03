@@ -9,6 +9,8 @@ Rails.application.routes.draw do
       resources :agendas, only: [:index, :show, :create, :update, :destroy]
 
       get "trending_topics", to: "trending_topics#index"
+
+      get "news", to: "news#index"
     end
   end
 end
