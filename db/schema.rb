@@ -1,5 +1,11 @@
-ActiveRecord::Schema[7.0].define(version: 2022_07_02_145942) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_02_151835) do
   enable_extension "plpgsql"
+
+  create_table "news_sources", force: :cascade do |t|
+    t.string "name"
+    t.string "url"
+    t.string "credibility"
+  end
 
   create_table "agendas", force: :cascade do |t|
     t.string "title"
@@ -7,7 +13,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_02_145942) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
+  
   create_table "stakeholders", force: :cascade do |t|
     t.string "name", null: false
     t.string "position"
