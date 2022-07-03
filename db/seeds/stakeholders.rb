@@ -8,7 +8,8 @@ stakeholders = [
     role: "supporter",
     phone: "(21) 9 9999-9999",
     email: "danielevasconcelos@teste.com.br",
-    organization: "MSF"
+    organization: "MSF",
+    agenda_id: 3
   },
 
   {
@@ -20,7 +21,8 @@ stakeholders = [
     role: "supporter",
     phone: "(21) 9 9999-9999",
     email: "diogenessantos@teste.com.br",
-    organization: "MSF"
+    organization: "MSF",
+    agenda_id: 4
   },
 
   {
@@ -32,7 +34,8 @@ stakeholders = [
     role: "undecided",
     phone: "(21) 9 9999-9999",
     email: "carolinaflores@teste.com.br",
-    organization: "MSF"
+    organization: "MSF",
+    agenda_id: 5
   },
 
   {
@@ -44,7 +47,8 @@ stakeholders = [
     role: "undecided",
     phone: "(21) 9 9999-9999",
     email: "lucascosta@teste.com.br",
-    organization: "MSF"
+    organization: "MSF",
+    agenda_id: 3
   },
 
   {
@@ -56,7 +60,8 @@ stakeholders = [
     role: "opposition",
     phone: "(21) 9 9999-9999",
     email: "dhiegodias@teste.com.br",
-    organization: "MSF"
+    organization: "MSF",
+    agenda_id: 2
   },
 
   {
@@ -68,7 +73,8 @@ stakeholders = [
     role: "supporter",
     phone: "(21) 9 9999-9999",
     email: "florencenightingale@teste.com.br",
-    organization: "MSF"
+    organization: "MSF",
+    agenda_id: 1
   }
 ]
 
@@ -85,6 +91,7 @@ stakeholders.each_with_index do |stakeholder, index|
     phone: stakeholder[:phone],
     email: stakeholder[:email],
     organization: stakeholder[:organization],
+    agenda_id: stakeholder[:agenda_id]
   )
 
   prefix = "Criando stakeholders:"
