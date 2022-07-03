@@ -7,4 +7,8 @@ module APP_CONFIG
     ACCESS_TOKEN        = CONFIG["twitter"]["access_token"]
     ACCESS_TOKEN_SECRET = CONFIG["twitter"]["access_token_secret"]
   end
+
+  module NEWS
+    API_KEY = CONFIG["news_api"]["api_key"]
+  end
 end
