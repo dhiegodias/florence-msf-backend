@@ -30,6 +30,9 @@ gem "jbuilder"
 # Cors
 gem 'rack-cors'
 
+# Twitter
+gem 'twitter'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
