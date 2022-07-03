@@ -1,5 +1,6 @@
 class Stakeholder < ApplicationRecord
   validates :name, presence: true
+  belongs_to :agenda
 
   SUPPORTER = "supporter".freeze
   OPPOSITION = "opposition".freeze
