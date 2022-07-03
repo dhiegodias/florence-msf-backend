@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
       get "trending_topics", to: "trending_topics#index"
 
-      get "news", to: "news#index"
+      get "news/(:agenda_id)", to: "news#index" 
     end
   end
 end
